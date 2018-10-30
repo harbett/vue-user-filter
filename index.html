@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <main>
+            <usuarios class="title-head">
+                <h1>USER SEARCH</h1>
+            </usuarios>
+        </main>
+
+
+        <template id="contenedor-usuarios">
+            <div>
+                <section class="head">
+                    <slot class="title-head"></slot>
+                    <input class="user-input" type="search" placeholder="Bucar usuario" v-model="busqueda">
+                </section>
+
+                <section class="users-box">
+                    <one-user :datos="user" v-for='user in filtrarBusqueda'>{{ user }}</one-user>
+                </section>
+            </div>  
+        </template>
+
+
+        <template id="usuarios-individuales">
+            <div class="usuario">
+                <img class="user-image" :src="datos.foto" alt="datos.nombre">
+                <div class="datos">
+                        <h1>{{ datos.nombre }}</h1>
+                        <h2>{{ datos.email }}</h2>
+                </div>
+            </div>
+        </template>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
