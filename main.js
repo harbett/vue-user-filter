@@ -1,7 +1,7 @@
 Vue.component('usuarios', {
     template: '#contenedor-usuarios',
     mounted(){
-        axios.get('https://randomuser.me/api/?results=30')
+        axios.get('https://randomuser.me/api/?results=28')
         .then((datos) => {
             const listado = datos.data.results.map((user) => {
                 return{
